@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <button id="toggle-sidebar">☰</button>
+      <div class="logo">
+        <a href="index.html">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube Logo"/>
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search" />
+        <button id="search-button">Search</button>
+      </div>
+      <div class="user-profile">
+        <img
+          src="https://vectorflags.s3.amazonaws.com/flags/ps-circle-01.png"
+          alt="User Avatar"
+          id="user-avatar"
+        />
+        <div class="dropdown-menu" id="dropdown-menu">
+          <ul>
+            <li><a href="#">View Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+      <button id="theme-toggle">🌙</button>
+      <!-- Theme Toggle Button -->
+    </header>
+
+    <div class="container">
+      <nav class="sidebar" id="sidebar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Subscriptions</a></li>
+          <li><a href="#">Library</a></li>
+        </ul>
+      </nav>
+
+      <main class="video-content" id="video-content">
+        <div id="no-results" style="display: none">
+          No results based on your search.
+        </div>
+
+        <div class="video-card" data-title="Palestine will be free 🇵🇸">
+          <div class="video-thumbnail">
+            <img
+              src="https://i.ytimg.com/vi/aaL5MdGL4nU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBveX0tajqR-qT0KzCUq9TTxeqHxA"
+              alt="Video Thumbnail"
+            />
+            <div class="play-icon">
+              <img
+                src="https://www.freeiconspng.com/thumbs/video-play-icon/video-play-icon-24.png"
+                alt="Play"
+                width="70px"
+                height="70px"
+              />
+            </div>
+          </div>
+          <div class="video-info">
+            <h3>Palestine will be free 🇵🇸</h3>
+            <p>Maher Zain • 1M views • 1 week ago</p>
+            <div class="video-actions">
+              <button class="like-button">👍</button>
+              <span class="like-count" data-count="1099" style="display: none"
+                >1.1k</span
+              >
+              <button class="dislike-button">👎</button>
+              <span class="dislike-count" data-count="99" style="display: none"
+                >100</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card" data-title="Thumbnail Tutorial! :)">
+          <div class="video-thumbnail">
+            <img
+              src="https://static-cse.canva.com/blob/1667994/1600w-wK95f3XNRaM.jpg"
+              alt="Video Thumbnail"
+            />
+            <div class="play-icon">
+              <img
+                src="https://www.freeiconspng.com/thumbs/video-play-icon/video-play-icon-24.png"
+                alt="Play"
+                width="70px"
+                height="70px"
+              />
+            </div>
+          </div>
+          <div class="video-info">
+            <h3>Thumbnail Tutorial! :)</h3>
+            <p>Nehal • 5K views • 2 weeks ago</p>
+            <div class="video-actions">
+              <button class="like-button">👍</button>
+              <span class="like-count" data-count="1099" style="display: none"
+                >1.1k</span
+              >
+              <button class="dislike-button">👎</button>
+              <span class="dislike-count" data-count="99" style="display: none"
+                >100</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- More video cards -->
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
