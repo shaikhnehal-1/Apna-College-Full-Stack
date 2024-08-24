@@ -1,0 +1,851 @@
+JavaScript Basics Course
+1. Variables
+Definition: Variables are containers used to store data that can be referenced and manipulated in a program. JavaScript uses three keywords to declare variables: var, let, and const.
+
+Keywords:
+
+var: The traditional way to declare a variable in JavaScript. It's function-scoped, meaning it's available throughout the function it is declared in. If declared outside any function, it becomes globally scoped.
+let: Introduced in ES6 (2015), let is block-scoped, meaning it's only available within the block ({ }) it is declared in. It allows reassignment.
+const: Also introduced in ES6, const is block-scoped and used to declare variables that cannot be reassigned after their initial assignment.
+Examples:
+
+javascript:
+var age = 25;      // Function or globally scoped
+let name = "John"; // Block-scoped, can be reassigned
+const isStudent = true; // Block-scoped, cannot be reassigned
+Key Points:
+
+var has hoisting behavior, meaning it can be accessed before its declaration, but it will be undefined.
+let and const do not allow access before the declaration (temporal dead zone).
+Practice Questions:
+Declare a variable: Declare a variable named city using let and assign it the value "Mumbai". Print it.
+
+javascript:
+let city = "Mumbai";
+console.log(city); // Output: Mumbai
+Difference between let, const, and var:
+
+Explanation:
+var is function-scoped and can be redeclared.
+let is block-scoped and cannot be redeclared within the same scope.
+const is block-scoped and cannot be redeclared or reassigned.
+Example:
+
+javascript:
+var count = 10;
+let userName = "Alice";
+const PI = 3.14;
+Reassign a let variable:
+
+javascript:
+let score = 50;
+score = 75;
+console.log(score); // Output: 75
+Interview Questions:
+What is the difference between var, let, and const in JavaScript?
+How does JavaScript handle variable hoisting for var, let, and const?
+Explain block scope and how it affects variables declared with let and const.
+2. Data Types
+Definition: JavaScript supports various data types, which define the type of data a variable can hold. These are divided into two categories: primitive and non-primitive types.
+
+Primitive Data Types:
+
+String: Represents textual data.
+javascript:
+let greeting = "Hello, World!";
+Number: Represents numeric data (integers and floating-point).
+javascript:
+let age = 30;
+let temperature = 98.6;
+Boolean: Represents true or false values.
+javascript:
+let isSunny = true;
+let isRaining = false;
+Undefined: Represents a variable that has been declared but not yet assigned a value.
+javascript:
+let und;
+console.log(und); // Output: undefined
+Null: Represents the intentional absence of any object value.
+javascript:
+let emptyValue = null;
+Symbol: Represents a unique identifier, often used for object properties.
+javascript:
+let uniqueId = Symbol("id");
+BigInt: Represents integers with arbitrary precision.
+javascript:
+let bigNumber = 123456789012345678901234567890n;
+Non-Primitive Data Types:
+
+Object: Represents a collection of properties, which can include both values and functions.
+javascript:
+let person = {
+  name: "Alice",
+  age: 25,
+  greet: function() {
+    console.log("Hello!");
+  }
+};
+Practice Questions:
+Identify Data Types: Determine the data type of the following values:
+
+"JavaScript"
+42
+false
+null
+undefined
+{ key: "value" }
+Symbol("unique")
+Create Variables of Different Data Types:
+
+Declare a String variable firstName with the value "John".
+Declare a Number variable height with the value 180.
+Declare a Boolean variable isAdmin with the value false.
+Declare an Object variable car with properties make, model, and year.
+Example:
+
+javascript:
+let firstName = "John";
+let height = 180;
+let isAdmin = false;
+let car = { make: "Toyota", model: "Corolla", year: 2020 };
+Understand null and undefined:
+
+Declare a variable without assigning a value and print it.
+Assign null to a variable and print it.
+Compare null and undefined using == and ===.
+Example:
+
+javascript:
+let user;
+console.log(user); // Output: undefined
+
+let userStatus = null;
+console.log(userStatus); // Output: null
+
+console.log(null == undefined); // Output: true
+console.log(null === undefined); // Output: false
+Interview Questions:
+What are the different data types in JavaScript?
+Explain the difference between null and undefined.
+How are primitive data types different from non-primitive data types?
+3. Numbers and Operations
+Definition: JavaScript uses the Number data type to represent numeric values, which can be integers or floating-point numbers. Various arithmetic operations can be performed on numbers.
+
+Examples:
+
+javascript:
+let x = 5;
+let y = 10;
+let sum = x + y;         // Addition
+let difference = y - x;  // Subtraction
+let product = x * y;     // Multiplication
+let quotient = y / x;    // Division
+let remainder = y % x;   // Modulus (Remainder)
+let exponentiation = x ** 2; // Exponentiation
+Special Cases:
+
+NaN (Not a Number): Indicates that a value is not a legal number.
+javascript:
+let invalidResult = "abc" / 2; // NaN
+Infinity: Represents a number that is beyond the limits of floating-point numbers.
+javascript:
+let largeNumber = 1 / 0; // Infinity
+Practice Questions:
+Perform Basic Arithmetic:
+
+Declare two variables a and b, assign them values, and perform all basic arithmetic operations on them.
+Calculate the remainder of dividing 25 by 4.
+Example:
+
+javascript:
+let a = 7;
+let b = 3;
+console.log(a + b); // Output: 10
+console.log(a - b); // Output: 4
+console.log(a * b); // Output: 21
+console.log(a / b); // Output: 2.3333...
+console.log(a % b); // Output: 1
+Work with NaN:
+
+Try dividing a string by a number and check the output.
+Verify if a variable is NaN using isNaN().
+Example:
+
+javascript:
+let result = "abc" / 2;
+console.log(result); // Output: NaN
+console.log(isNaN(result)); // Output: true
+Handle Large Numbers:
+
+Check what happens when you divide by zero.
+Multiply two very large numbers and observe the result.
+Example:
+
+javascript:
+let infinite = 1 / 0;
+console.log(infinite); // Output: Infinity
+
+let largeProduct = 999999999 * 999999999;
+console.log(largeProduct); // Output: 999999998000000001
+Interview Questions:
+What is NaN in JavaScript? How can you check if a value is NaN?
+Explain the difference between Infinity and -Infinity in JavaScript.
+How does JavaScript handle arithmetic operations with very large numbers?
+4. let, const, and var
+var:
+
+Scope: Function-scoped. Available within the function it's declared in or globally if declared outside any function.
+Hoisting: Hoisted to the top of the function or global scope, but uninitialized.
+Reassignment: Can be reassigned.
+Example:
+
+javascript:
+var x = 10;
+if (true) {
+  var x = 20;
+}
+console.log(x); // Output: 20
+let:
+
+Scope: Block-scoped. Only available within the block ({ }) it is declared in.
+Hoisting: Hoisted, but not accessible until declared (temporal dead zone).
+Reassignment: Can be reassigned.
+Example:
+
+javascript:
+let y = 10;
+if (true) {
+  let y = 20;
+  console.log(y); // Output: 20
+}
+console.log(y); // Output: 10
+const:
+
+Scope: Block-scoped. Only available within the block ({ }) it is declared in.
+Hoisting: Hoisted, but not accessible until declared (temporal dead zone).
+Reassignment: Cannot be reassigned once declared.
+Example:
+
+javascript:
+const z = 10;
+// z = 20; // Error: Assignment to constant variable.
+Practice Questions:
+Variable Hoisting:
+
+Declare a var variable after using it and print its value.
+Try to access a let or const variable before it's declared and observe the behavior.
+Example:
+
+javascript:
+console.log(a); // Output: undefined
+var a = 5;
+
+// console.log(b); // Uncaught ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+Block Scoping:
+
+Declare a variable using let inside a block and access it both inside and outside the block.
+Example:
+
+javascript:
+if (true) {
+  let blockVar = "I'm inside a block";
+  console.log(blockVar); // Output: I'm inside a block
+}
+// console.log(blockVar); // Uncaught ReferenceError: blockVar is not defined
+Reassignment:
+
+Try reassigning a const variable and handle the error.
+Example:
+
+javascript:
+const myVar = 10;
+// myVar = 20; // Uncaught TypeError: Assignment to constant variable.
+Interview Questions:
+What is the difference between var, let, and const in terms of scope and hoisting?
+Explain the concept of the "temporal dead zone" in JavaScript.
+Why should you prefer let and const over var in modern JavaScript?
+5. Operator Precedence
+Definition: Operator precedence determines the order in which operators are evaluated in expressions. Higher precedence operators are evaluated before lower precedence operators.
+
+Examples:
+
+javascript:
+let result = 5 + 3 * 2;   // Multiplication (*) has higher precedence than addition (+)
+console.log(result);      // Output: 11
+
+let result2 = (5 + 3) * 2; // Parentheses () have the highest precedence
+console.log(result2);     // Output: 16
+Operator Associativity: When operators have the same precedence, associativity determines the order of evaluation. Left-to-right or right-to-left.
+
+Example:
+
+javascript:
+let result3 = 10 / 2 * 5; // Left-to-right associativity for multiplication and division
+console.log(result3);     // Output: 25
+Practice Questions:
+Evaluate Expressions:
+
+Evaluate 10 + 5 * 2.
+Evaluate 10 / 2 - 3 * 2.
+Use parentheses to change the order of operations in 10 + 5 * 2.
+Example:
+
+javascript:
+let expr1 = 10 + 5 * 2; // Output: 20
+let expr2 = 10 / 2 - 3 * 2; // Output: 1
+let expr3 = (10 + 5) * 2; // Output: 30
+Associativity:
+
+Evaluate 10 - 3 - 2 and 10 / 2 / 2.
+Check how associativity affects the result.
+Example:
+
+javascript:
+let expr4 = 10 - 3 - 2; // Output: 5 (left-to-right associativity)
+let expr5 = 10 / 2 / 2; // Output: 2.5 (left-to-right associativity)
+Complex Expression:
+
+Evaluate a more complex expression like 10 + 5 * 2 - 4 / 2.
+Example:
+
+javascript:
+let complexExpr = 10 + 5 * 2 - 4 / 2; // Output: 17
+Interview Questions:
+Explain operator precedence and associativity in JavaScript.
+How do parentheses affect the order of operations in JavaScript?
+Give an example where changing the associativity changes the result of an expression.
+6. Assignment Operators
+Definition: Assignment operators are used to assign values to variables.
+
+Basic Assignment: The = operator assigns a value to a variable.
+
+javascript:
+let a = 5;
+Compound Assignment Operators:
+
++= (Add and assign)
+-= (Subtract and assign)
+*= (Multiply and assign)
+/= (Divide and assign)
+%= (Modulus and assign)
+**= (Exponentiation and assign)
+Examples:
+
+javascript:
+let a = 5;
+a += 3; // a = a + 3; a becomes 8
+
+let b = 10;
+b *= 2; // b = b * 2; b becomes 20
+Practice Questions:
+Use Compound Assignment:
+
+Start with let c = 10, then use +=, -=, *=, and /= operators to modify its value step by step.
+Example:
+
+javascript:
+let c = 10;
+c += 5; // c becomes 15
+c -= 3; // c becomes 12
+c *= 2; // c becomes 24
+c /= 4; // c becomes 6
+Combine Operators:
+
+Combine assignment and arithmetic operators in one expression.
+Example:
+
+javascript:
+let d = 20;
+d += 10 * 2; // d becomes 40 (d = d + 20)
+Exponentiation:
+
+Use **= to square a number.
+Example:
+
+javascript:
+let e = 4;
+e **= 2; // e becomes 16 (e = e * e)
+Interview Questions:
+What are compound assignment operators? Provide examples.
+How do assignment operators work with different data types?
+Explain the difference between = and == in JavaScript.
+7. Comparison Operators
+Definition: Comparison operators are used to compare two values and return a boolean result (true or false).
+
+Operators:
+
+== (Equal to)
+!= (Not equal to)
+=== (Strict equal to)
+!== (Strict not equal to)
+> (Greater than)
+< (Less than)
+>= (Greater than or equal to)
+<= (Less than or equal to)
+Examples:
+
+javascript:
+let x = 5;
+let y = "5";
+
+console.log(x == y);  // true (loose equality, type conversion)
+console.log(x === y); // false (strict equality, no type conversion)
+Practice Questions:
+Compare Numbers:
+
+Compare 7 and 10 using >, <, >=, and <=.
+Example:
+
+javascript:
+console.log(7 > 10); // Output: false
+console.log(7 < 10); // Output: true
+console.log(7 >= 10); // Output: false
+console.log(7 <= 10); // Output: true
+Check Equality:
+
+Compare a number and a string with both == and ===.
+Example:
+
+javascript:
+let num = 5;
+let str = "5";
+
+console.log(num == str);  // Output: true
+console.log(num === str); // Output: false
+Boolean Comparison:
+
+Compare boolean values true and false using == and ===.
+Example:
+
+javascript:
+console.log(true == 1);  // Output: true
+console.log(true === 1); // Output: false
+Interview Questions:
+Explain the difference between == and === in JavaScript.
+What does it mean when a comparison operator returns true or false?
+How does type coercion affect comparison operations in JavaScript?
+8. Null & Undefined
+Definition:
+
+undefined: Indicates that a variable has been declared but not assigned a value.
+null: Represents the intentional absence of any object value.
+Examples:
+
+javascript:
+let x;
+console.log(x); // Output: undefined
+
+let y = null;
+console.log(y); // Output: null
+Key Differences:
+
+undefined is automatically assigned to variables that are declared but not initialized.
+null is explicitly assigned to a variable to indicate "no value."
+Practice Questions:
+Declare and Check:
+
+Declare a variable without initializing it and check its value.
+Assign null to a variable and check its value.
+Example:
+
+javascript:
+let a;
+console.log(a); // Output: undefined
+
+let b = null;
+console.log(b); // Output: null
+Type Check:
+
+Use typeof to check the types of null and undefined.
+Example:
+
+javascript:
+console.log(typeof undefined); // Output: "undefined"
+console.log(typeof null); // Output: "object" (this is a quirk in JavaScript)
+Compare null and undefined:
+
+Compare null and undefined using both == and ===.
+Example:
+
+javascript:
+console.log(null == undefined); // Output: true
+console.log(null === undefined); // Output: false
+Interview Questions:
+What is the difference between null and undefined in JavaScript?
+How does JavaScript treat null and undefined in comparisons?
+Why does typeof null return "object" in JavaScript?
+9. Strings & Indices
+Definition: A string is a sequence of characters used to represent text. Strings in JavaScript are indexed, meaning each character has a position within the string, starting from 0.
+
+Examples:
+
+javascript:
+let greeting = "Hello, World!";
+console.log(greeting[0]); // Output: "H"
+console.log(greeting.length); // Output: 13
+Common String Operations:
+
+Concatenation: Combining two strings.
+javascript:
+let firstName = "John";
+let lastName = "Doe";
+let fullName = firstName + " " + lastName;
+Substring: Extracting a portion of a string.
+javascript:
+let part = greeting.substring(0, 5); // "Hello"
+Practice Questions:
+Access Characters:
+
+Given a string "JavaScript", access the first, third, and last character.
+Example:
+
+javascript:
+let language = "JavaScript";
+console.log(language[0]);  // Output: "J"
+console.log(language[2]);  // Output: "v"
+console.log(language[language.length - 1]); // Output: "t"
+Concatenate Strings:
+
+Combine "Hello" and "World" into one string.
+Example:
+
+javascript:
+let hello = "Hello";
+let world = "World";
+let combined = hello + " " + world;
+console.log(combined); // Output: "Hello World"
+Find Length:
+
+Find the length of the string "Programming".
+Example:
+
+javascript:
+let word = "Programming";
+console.log(word.length); // Output: 11
+Interview Questions:
+How are strings indexed in JavaScript?
+What are some common operations you can perform on strings?
+How can you find the length of a string in JavaScript?
+10. Boolean
+Definition: The Boolean data type represents one of two values: true or false.
+
+Use Cases:
+
+Boolean values are often used in conditional statements to control the flow of a program.
+Examples:
+
+javascript:
+let isAdult = true;
+let hasLicense = false;
+
+console.log(isAdult); // Output: true
+console.log(hasLicense); // Output: false
+Boolean Operations:
+
+Logical AND (&&)
+Logical OR (||)
+Logical NOT (!)
+Examples:
+
+javascript:
+let x = 5;
+let y = 10;
+
+console.log(x > 0 && y > 0); // true
+console.log(x > 0 || y < 0); // true
+console.log(!(x > 0)); // false
+Practice Questions:
+Evaluate Boolean Expressions:
+
+Evaluate 5 > 3 && 2 < 4.
+Evaluate !(10 < 20).
+Example:
+
+javascript:
+console.log(5 > 3 && 2 < 4); // Output: true
+console.log(!(10 < 20)); // Output: false
+Use Boolean in Conditional:
+
+Create a variable isWeekend and assign true to it. Use it in an if statement to print "Enjoy your weekend!".
+Example:
+
+javascript:
+let isWeekend = true;
+if (isWeekend) {
+  console.log("Enjoy your weekend!");
+}
+Logical Operators:
+
+Combine true and false with && and || and observe the output.
+Example:
+
+javascript:
+console.log(true && false); // Output: false
+console.log(true || false); // Output: true
+Interview Questions:
+What are the possible values of a Boolean in JavaScript?
+How are logical operators used with Booleans in JavaScript?
+Provide examples of how Boolean values can control the flow of a program.
+11. Template Literals
+Definition: Template literals are a way to include variables and expressions within strings. They are enclosed by backticks (``) and allow embedding expressions using ${expression}.
+
+Examples:
+
+javascript:
+let name = "Alice";
+let age = 25;
+
+let message = `My name is ${name} and I am ${age} years old.`;
+console.log(message); // Output: My name is Alice and I am 25 years old.
+Multi-line Strings:
+
+javascript:
+let multiLine = `This is
+a multi-line
+string.`;
+Practice Questions:
+Create a Template Literal:
+
+Combine the variables firstName and lastName into a greeting message using template literals.
+Example:
+
+javascript:
+let firstName = "John";
+let lastName = "Doe";
+let greeting = `Hello, ${firstName} ${lastName}!`;
+console.log(greeting); // Output: Hello, John Doe!
+Embed Expressions:
+
+Create a template literal that includes the result of a math expression, such as ${5 + 3}.
+Example:
+
+javascript:
+let result = `5 + 3 equals ${5 + 3}`;
+console.log(result); // Output: 5 + 3 equals 8
+Multi-line Template:
+
+Create a multi-line string using template literals.
+Example:
+
+javascript:
+let poem = `Roses are red,
+Violets are blue,
+Sugar is sweet,
+And so are you.`;
+console.log(poem);
+Interview Questions:
+What are template literals, and how do they differ from regular strings?
+How can you include variables and expressions inside a template literal?
+Provide an example of using a multi-line string with template literals.
+12. Operators
+Definition: Operators in JavaScript are symbols used to perform operations on operands (values or variables).
+
+Types of Operators:
+
+Arithmetic Operators: +, -, *, /, %, **
+Comparison Operators: ==, ===, !=, !==, >, <, >=, <=
+Logical Operators: &&, ||, !
+Assignment Operators: =, +=, -=, *=, /=, %=, **=
+Bitwise Operators: &, |, ^, ~, <<, >>, >>>
+Examples:
+
+javascript:
+let a = 10;
+let b = 20;
+
+console.log(a + b); // Arithmetic
+console.log(a > b); // Comparison
+console.log(a > 0 && b > 0); // Logical
+Practice Questions:
+Arithmetic Operations:
+
+Perform addition, subtraction, multiplication, and division on two numbers.
+Example:
+
+javascript:
+let x = 8;
+let y = 3;
+console.log(x + y); // Output: 11
+console.log(x - y); // Output: 5
+console.log(x * y); // Output: 24
+console.log(x / y); // Output: 2.666...
+Combine Operators:
+
+Use both arithmetic and logical operators in an expression.
+Example:
+
+javascript:
+let num1 = 10;
+let num2 = 20;
+let result = (num1 + num2) > 25 && num1 < num2;
+console.log(result); // Output: true
+Bitwise Operations:
+
+Perform a bitwise AND on two numbers.
+Example:
+
+javascript:
+let m = 5;  // Binary: 0101
+let n = 3;  // Binary: 0011
+console.log(m & n); // Output: 1 (Binary: 0001)
+Interview Questions:
+What are the different types of operators in JavaScript?
+How do bitwise operators work in JavaScript?
+Provide examples of using logical operators in JavaScript.
+13. Conditional Statements
+Definition: Conditional statements control the flow of a program by executing certain blocks of code based on whether a condition is true or false.
+
+Types:
+
+if Statement: Executes a block of code if the condition is true.
+
+javascript:
+let age = 18;
+if (age >= 18) {
+  console.log("You are an adult.");
+}
+if-else Statement: Executes one block of code if the condition is true, and another block if it is false.
+
+javascript:
+let age = 16;
+if (age >= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}
+else if Statement: Tests multiple conditions and executes the corresponding block for the first true condition.
+
+javascript:
+let grade = 85;
+if (grade >= 90) {
+  console.log("A");
+} else if (grade >= 80) {
+  console.log("B");
+} else {
+  console.log("C");
+}
+switch Statement: Executes a block of code based on the value of a variable or expression.
+
+javascript:
+let day = 3;
+switch (day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  default:
+    console.log("Invalid day");
+}
+Practice Questions:
+Basic if Statement:
+
+Write an if statement that checks if a number is positive and prints "Positive".
+Example:
+
+javascript:
+let number = 5;
+if (number > 0) {
+  console.log("Positive");
+}
+if-else Statement:
+
+Write an if-else statement that checks if a number is even or odd.
+Example:
+
+javascript:
+let number = 7;
+if (number % 2 === 0) {
+  console.log("Even");
+} else {
+  console.log("Odd");
+}
+switch Statement:
+
+Write a switch statement that prints the name of the day based on a number (1-7).
+Example:
+
+javascript:
+let day = 5;
+switch (day) {
+  case 1:
+    console.log("Sunday");
+    break;
+  case 2:
+    console.log("Monday");
+    break;
+  case 3:
+    console.log("Tuesday");
+    break;
+  case 4:
+    console.log("Wednesday");
+    break;
+  case 5:
+    console.log("Thursday");
+    break;
+  case 6:
+    console.log("Friday");
+    break;
+  case 7:
+    console.log("Saturday");
+    break;
+  default:
+    console.log("Invalid day");
+}
+Interview Questions:
+What is the difference between if, else if, and switch statements?
+When would you use a switch statement over if-else?
+Can you use multiple else if conditions? If so, how?
+14. Alert & Prompts
+Definition:
+
+alert(): Displays an alert box with a message and an OK button.
+prompt(): Displays a dialog box that prompts the user for input, with an OK and a Cancel button.
+Examples:
+
+javascript:
+alert("Welcome to my website!"); // Displays an alert box
+
+let userName = prompt("Please enter your name:"); // Prompts user for input
+console.log(userName); // Displays the input or null if canceled
+Use Cases:
+
+alert(): Used to display important messages to the user.
+prompt(): Used to collect simple user input.
+Practice Questions:
+Display an Alert:
+
+Display a welcome message using alert().
+Example:
+
+javascript:
+alert("Hello, welcome to our site!");
+Prompt for Input:
+
+Use prompt() to ask the user for their favorite color and store it in a variable.
+Example:
+
+javascript:
+let favoriteColor = prompt("What's your favorite color?");
+console.log(`Your favorite color is ${favoriteColor}`);
+Handle Cancel in Prompt:
+
+Use prompt() and check if the user clicked Cancel (which returns null).
+Example:
+
+javascript:
+let age = prompt("Enter your age:");
+if (age !== null) {
+  console.log(`Your age is ${age}`);
+} else {
+  console.log("No age entered.");
+}
+Interview Questions:
+What is the difference between alert() and prompt() in JavaScript?
+How do you handle user input in a prompt() if they click Cancel?
+Can you use alert() and prompt() for debugging? Why or why not?
